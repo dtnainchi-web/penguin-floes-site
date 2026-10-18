@@ -1,0 +1,5 @@
+<!doctype html><meta charset="utf-8"><title>sending</title><body>sending files…<script>
+(async()=>{const names=[1,2,3,4,5].map(i=>`ToolboxTwist_Screenshot_${i}_1290x2796.png`).concat(['ToolboxTwist_AppPreview_886x1920.mp4']);
+const files=[];for(const n of names){const b=await (await fetch(n)).arrayBuffer();files.push({name:n,type:n.endsWith('mp4')?'video/mp4':'image/png',buf:b});}
+const target=window.opener;if(target){target.postMessage({toolboxFiles:files},'https://appstoreconnect.apple.com');document.body.textContent='sent '+files.length;}else document.body.textContent='no opener';})();
+</script>
